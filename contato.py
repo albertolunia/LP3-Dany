@@ -54,8 +54,3 @@ class Telefone:
 
     def mostra_telefone(self):
         print(f'Nome: {self.__telefone}')
-
-
-contato1 = Contato('Alberto', 'alberto@gmail.com', 981079722)
-
-contato1.mostra_contato()

@@ -2,23 +2,10 @@ from math import floor
 
 
 class Data:
-    def __init__(self, *args):
-        if len(args) == 3:
-            self.__dia = args[0]
-            self.__mes = args[1]
-            self.__ano = args[2]
-        elif len(args) == 2:
-            self.__dia = args[0].dia + args[1]
-            self.__mes = args[0].mes
-            self.__ano = args[0].ano
-        elif len(args) == 1:
-            self.__dia = args[0].dia
-            self.__mes = args[0].mes
-            self.__ano = args[0].ano
-        else:
-            self.__dia = 0
-            self.__mes = 0
-            self.__ano = 0
+    def __init__(self, dia, mes, ano):
+        self.__dia = dia
+        self.__mes = mes
+        self.__ano = ano
 
     def verificar_data(self):
         if 1 <= self.__dia <= 31 and 1 <= self.__mes <= 12:
@@ -72,19 +59,8 @@ class Data:
 
         print(f'Dia da semana: {dias[DiaDaSemana]}')
 
-    def muda_data_para(self, *args):
-        if len(args) == 3:
-            self.__dia = args[0]
-            self.__mes = args[1]
-            self.__ano = args[2]
-        elif len(args) == 2:
-            self.__dia = args[0].dia + args[1]
-            self.__mes = args[0].mes
-            self.__ano = args[0].ano
-        elif len(args) == 1:
-            self.__dia = args[0].dia
-            self.__mes = args[0].mes
-            self.__ano = args[0].ano
+    def muda_data_para(self):
+        pass
 
     @property
     def dia(self):
@@ -109,16 +85,3 @@ class Data:
     @ano.setter
     def ano(self, value):
         self.__ano = value
-
-
-data1 = Data(3, 4, 2022)
-data2 = Data(data1)
-data3 = Data(data2, 10)
-
-data1.mostra_data()
-data2.mostra_data()
-data3.mostra_data()
-
-data1.muda_data_para(14, 2, 1999)
-
-data1.mostra_data()

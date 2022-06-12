@@ -1,21 +1,8 @@
 class Hora:
-    def __init__(self, *args):
-        if len(args) == 3:
-            self.__horas = args[0]
-            self.__minutos = args[1]
-            self.__segundos = args[2]
-        elif len(args) == 4:
-            self.__horas = args[0].horas + args[1]
-            self.__minutos = args[0].minutos + args[2]
-            self.__segundos = args[0].segundos + args[3]
-        elif len(args) == 1:
-            self.__horas = args[0].horas
-            self.__minutos = args[0].minutos
-            self.__segundos = args[0].segundos
-        else:
-            self.__horas = 0
-            self.__minutos = 0
-            self.__segundos = 0
+    def __init__(self, horas, minutos, segundos):
+        self.__horas = horas
+        self.__minutos = minutos
+        self.__segundos = segundos
 
     def verificar_hora(self):
         if 0 <= self.horas <= 24 and 0 <= self.minutos <= 60 and 0 <= self.__segundos <= 60:
@@ -70,23 +57,8 @@ class Hora:
         if self.__horas > 24:
             self.__horas -= 24
 
-    def muda_hora_para(self, *args):
-        if len(args) == 3:
-            self.__horas = args[0]
-            self.__minutos = args[1]
-            self.__segundos = args[2]
-        elif len(args) == 4:
-            self.__horas = args[0].horas + args[1]
-            self.__minutos = args[0].minutos + args[2]
-            self.__segundos = args[0].segundos + args[3]
-        elif len(args) == 1:
-            self.__horas = args[0].horas
-            self.__minutos = args[0].minutos
-            self.__segundos = args[0].segundos
-        else:
-            self.__horas = 0
-            self.__minutos = 0
-            self.__segundos = 0
+    def muda_hora_para(self):
+        pass
 
     @property
     def horas(self):
@@ -111,36 +83,3 @@ class Hora:
     @segundos.setter
     def segundos(self, value):
         self.__segundos = value
-
-
-hora1 = Hora(2, 60, 60)
-
-hora1.verificar_hora()
-hora1.mostra_hora()
-
-if hora1.eam():
-    print('É AM')
-else:
-    print('NÃO É AM')
-
-hora1.cronometa('3:1:0')
-hora1.adianta_em_segundos(1)
-hora1.mostra_hora()
-
-hora2 = Hora(4, 3, 2)
-hora2.mostra_hora()
-
-hora3 = Hora(hora2)
-hora3.mostra_hora()
-
-hora4 = Hora(hora2, 1, 1, 1)
-hora4.mostra_hora()
-
-hora4.muda_hora_para(1, 1, 1)
-hora4.mostra_hora()
-
-hora4.muda_hora_para(hora2)
-hora4.mostra_hora()
-
-hora4.muda_hora_para(hora2, 1, 1, 1)
-hora4.mostra_hora()
